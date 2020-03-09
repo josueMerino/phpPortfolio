@@ -34,7 +34,10 @@ use Aura\Router\RouterContainer;
 $routerContainer = new RouterContainer();
 
 $map = $routerContainer->getMap();
-$map->get('index', '/', '../index.php');
+$map->get('index', '/', [
+    'controller' => 'App\Controllers\IndexController',
+    'action' => 'indexAction'
+]);
 $map->get('addJobs', '/jobs/add', '../addJob.php');
 
 $matcher = $routerContainer->getMatcher();
@@ -45,10 +48,15 @@ if (!$route) {
     echo 'No route';
 }
 else{
+    $handlerData = $route-> handler;
+    $actionName = $handlerData['action'];
+    $controllerName = $handlerData['controller'];
 
-    require $route-> handler;
+
+    $controller = new $controllerName;
+    $controller->$actionName();
 
     
 }
-var_dump($route->handler); // handler es el manejador de la ruta
+//var_dump($route->handler); // handler es el manejador de la ruta
 ?>
