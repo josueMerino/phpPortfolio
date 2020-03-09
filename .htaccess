@@ -1,0 +1,7 @@
+RewriteEngine On
+RewriteBase /
+# Fix URLs that begin with "public" subdirectory
+RewriteCond %{THE_REQUEST} \s/public(?:/(\S*))?\s
+RewriteRule ^ %1 [NS,NE,R=301,END]
+# Internally rewrite everything else
+RewriteRule ^(?!public/).* public/$1 [DPI,L]
