@@ -12,6 +12,7 @@
         "illuminate/database": "^7.0",
         "laminas/laminas-diactoros": "^2.2",
         "aura/router": "^3.1",
-        "zendframework/zend-diactoros": "^2.2"
+        "zendframework/zend-diactoros": "^2.2",
+        "twig/twig": "^3.0"
     }
 }

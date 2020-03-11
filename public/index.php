@@ -96,8 +96,9 @@ else{
 
 
     $controller = new $controllerName;
-    $controller->$actionName($request);
+    $response = $controller->$actionName($request);
 
+    echo $response->getBody();
     
 }
 //var_dump($route->handler); // handler es el manejador de la ruta
