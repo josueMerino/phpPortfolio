@@ -54,7 +54,10 @@ $map->post('saveProjects', '/projects/add', [
     'controller' => 'App\Controllers\ProjectsController',
     'action' => 'getAddProjectAction'
 ]);
-
+$map->get('addBriefcase', '/add', [
+    'controller' => 'App\Controllers\BriefcaseController',
+    'action' => 'accessBriefcase'
+]);
 $matcher = $routerContainer->getMatcher();
 $route = $matcher->match($request);
 
