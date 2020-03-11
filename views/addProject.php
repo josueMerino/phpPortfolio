@@ -15,7 +15,7 @@
     <div class="nav-wrapper">
     <a href="#" class="brand-logo center">Add Project</a>
     <ul id="nav-mobile" class="left hide-on-med-and-down">
-        <li><a href="addJob.php">Add Job</a></li>
+        <li><a href="/jobs/add">Add Job</a></li>
     </ul>
     </div>
     </nav>
