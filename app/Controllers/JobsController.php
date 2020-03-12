@@ -19,6 +19,6 @@ class JobsController extends BaseController{
             # code...
         }
 
-        echo $this->renderHTML('addJob.twig');
+        return $this->renderHTML('addJob.twig');
     }
 }

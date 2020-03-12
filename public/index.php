@@ -98,7 +98,7 @@ else{
     $controller = new $controllerName;
     $response = $controller->$actionName($request);
 
-    echo $response->getBody();
+    echo $response->getBody(); // getBody, es la función que muestra el cuerpo del archivo HTML o el de la vista
     
 }
 //var_dump($route->handler); // handler es el manejador de la ruta
