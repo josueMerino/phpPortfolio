@@ -38,19 +38,19 @@ $map->get('index', '/', [
     'controller' => 'App\Controllers\IndexController',
     'action' => 'indexAction' //La tercera expresión que ponemos es handler
 ]);
-$map->get('addJobs', '/jobs/add', [
+$map->get('addJobs', '/add/jobs', [
     'controller' => 'App\Controllers\JobsController',
     'action' => 'getAddJobAction'
 ]);
-$map->post('saveJobs', '/jobs/add', [
+$map->post('saveJobs', '/add/jobs', [
     'controller' => 'App\Controllers\JobsController',
     'action' => 'getAddJobAction'
 ]);
-$map->get('addProjects', '/projects/add', [
+$map->get('addProjects', '/add/projects', [
     'controller' => 'App\Controllers\ProjectsController',
     'action' => 'getAddProjectAction'
 ]);
-$map->post('saveProjects', '/projects/add', [
+$map->post('saveProjects', '/add/projects', [
     'controller' => 'App\Controllers\ProjectsController',
     'action' => 'getAddProjectAction'
 ]);

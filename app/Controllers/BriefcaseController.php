@@ -2,9 +2,9 @@
 
 namespace App\Controllers;
 
-class BriefcaseController{
+class BriefcaseController extends BaseController {
     public function accessBriefcase(){
-        include '../views/addBriefcase.php';
+        return $this->renderHTML('addBriefcase.twig');
     }
 }
 

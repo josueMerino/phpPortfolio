@@ -1,0 +1,45 @@
+{% extends "templateAdd.twig" %}
+
+{% block head %}
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<title>Add Project</title>
+{% endblock %}
+
+{% block content %}
+<nav>
+    <div class="nav-wrapper">
+    <a href="#" class="brand-logo center">Add Project</a>
+    <ul id="nav-mobile" class="left hide-on-med-and-down">
+        <li><a href="/add/jobs">Add Job</a></li>
+        <li><a href="/add">Add Briefcase</a></li>
+    </ul>
+    <ul class="right hide-on-med-and-down">
+        <li><a href="/">Briefcase</a></li>
+    </ul>
+    </div>
+    </nav>
+<div class="container">
+    <form action="/add/projects" method="post">
+
+    <label for="">Project</label>
+    <input type="text" name="project"/><br/>
+
+    <label for="">Description</label>
+    <input type="text" name="description"/><br/>
+
+    <center>
+        <button class="btn waves-effect waves-light" type="submit" name="action">
+        Submit
+        <i class="material-icons right">send</i>
+        </button>
+    </center>
+    </form>
+
+</div>
+
+{% endblock %}
+
+ 
