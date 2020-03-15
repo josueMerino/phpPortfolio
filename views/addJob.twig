@@ -26,8 +26,11 @@
     </ul>
     </div>
 </nav>
+<div class="alert alert-primary" role="alert">
+{{ responseMessage }}
+</div>
     <div class="container">
-    <form action="/jobs/add" method="post">
+    <form action="/add/jobs" method="post">
         <label for="">Title:</label>
         <input type="text" name="title"><br/>
 
