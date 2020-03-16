@@ -9,11 +9,12 @@ class JobsController extends BaseController{
     
     public function getAddJobAction($request){
         $responseMessage = null;
-        $postData = $request->getParsedBody();
+        
         if (!empty($request->getMethod() == 'POST')) {
-            
+            $postData = $request->getParsedBody();
             $jobValidator = v::key('title', v::stringType()->notEmpty())
-                            ->key('description', v::stringType()->notEmpty());
+                            ->key('description', v::stringType()->notEmpty())
+                            ->key('months', v::stringType()->notEmpty());
 
             try {
                 //code...
