@@ -1,2 +1,10 @@
 //=> asignación
 //-> función flecha
+
+Hazlo el fin de semana para ir puliendo mejor esto
+
+Cuando termines el curso tienes el reto de poder poner imagenes en el portafolio
+Debes validarlo con que sea un archivo de imagenes
+Investiga acerca de PSR-7, seguridad
+
+También debes lograr mostrar una validación de parámetros, es decir, que muestre el error de cuanto a cuanto

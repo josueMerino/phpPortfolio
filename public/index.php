@@ -54,10 +54,15 @@ $map->post('saveProjects', '/add/projects', [
     'controller' => 'App\Controllers\ProjectsController',
     'action' => 'getAddProjectAction'
 ]);
+$map->get('addUsers', '/add/users', [
+    'controller' => 'App\Controllers\UserController',
+    'action' => 'getAddUserAction' //La tercera expresión que ponemos es handler
+]);
 $map->get('addBriefcase', '/add', [
     'controller' => 'App\Controllers\BriefcaseController',
     'action' => 'accessBriefcase'
 ]);
+
 $matcher = $routerContainer->getMatcher();
 $route = $matcher->match($request);
 
