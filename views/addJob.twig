@@ -26,12 +26,20 @@
     </ul>
     </div>
 </nav>
-<div class="alert alert-primary" role="alert">
-{{ responseMessage }}
-</div>
+<center>
+{% if job.getDurationAsString() < 48 %}
+    <div class="alert alert-primary" role="alert">
+    {{ responseMessage }}
+    </div>
+{% endif %}  
+{% if job.getDurationAsString() > 48 %}
+    <div class="alert alert-primary" role="alert">
+    {{maxValue}}
+{% endif %}
+</center>
 </div>
     <div class="container">
-    <form action="/add/jobs" method="post">
+    <form action="/add/jobs" method="post" enctype="multipart/form-data">
         <label for="">Title:</label>
         <input type="text" name="title"><br/>
 
@@ -40,7 +48,7 @@
 
         <label for="">Months:</label>
         <input type="number" name="months" id=""><br/>
-
+        <input type="file" name="logo" /><br/>
         <center>
             <button class="btn waves-effect waves-light" type="submit" name="action">
             Submit
