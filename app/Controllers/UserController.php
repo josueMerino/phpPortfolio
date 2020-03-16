@@ -8,6 +8,6 @@ use Respect\Validation\Validator as v;
 class UserController {
 
     public function getAddUserAction($request){
-        include ('../views/addUser.twig');
+        include ('../views/addUser.html');
     }
 }
