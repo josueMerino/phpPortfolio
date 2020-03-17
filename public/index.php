@@ -62,6 +62,14 @@ $map->post('saveUsers', '/add/users', [
     'controller' => 'App\Controllers\UserController',
     'action' => 'getAddUserAction' 
 ]);
+$map->get('loginForm', '/login', [
+    'controller' => 'App\Controllers\AuthController',
+    'action' => 'getLogin' 
+]);
+$map->post('auth', '/auth', [
+    'controller' => 'App\Controllers\AuthController',
+    'action' => 'getLogin' 
+]);
 $map->get('addBriefcase', '/add', [
     'controller' => 'App\Controllers\BriefcaseController',
     'action' => 'accessBriefcase'

@@ -5,9 +5,9 @@ namespace App\Controllers;
 use App\Models\User;
 use Respect\Validation\Validator as v;
 
-class UserController extends BaseController {
+class AuthController extends BaseController {
 
-    public function getAddUserAction($request) {
+    public function getLogin($request) {
         $responseMessage = null;
         if (!empty($request -> getMethod() == 'POST')) {
             # code...
@@ -33,7 +33,7 @@ class UserController extends BaseController {
             }
             
         }
-        return $this->renderHTML('addUser.twig',[
+        return $this->renderHTML('login.twig',[
             'responseMessage'=>$responseMessage
         ]);
     }
