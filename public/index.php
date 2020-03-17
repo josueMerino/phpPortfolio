@@ -56,7 +56,11 @@ $map->post('saveProjects', '/add/projects', [
 ]);
 $map->get('addUsers', '/add/users', [
     'controller' => 'App\Controllers\UserController',
-    'action' => 'getAddUserAction' //La tercera expresión que ponemos es handler
+    'action' => 'getAddUserAction' 
+]);
+$map->post('saveUsers', '/add/users', [
+    'controller' => 'App\Controllers\UserController',
+    'action' => 'getAddUserAction' 
 ]);
 $map->get('addBriefcase', '/add', [
     'controller' => 'App\Controllers\BriefcaseController',
