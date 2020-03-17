@@ -68,7 +68,7 @@ $map->get('loginForm', '/login', [
 ]);
 $map->post('auth', '/auth', [
     'controller' => 'App\Controllers\AuthController',
-    'action' => 'getLogin' 
+    'action' => 'postLogin' 
 ]);
 $map->get('addBriefcase', '/add', [
     'controller' => 'App\Controllers\BriefcaseController',
@@ -115,6 +115,15 @@ else{
     $controller = new $controllerName;
     $response = $controller->$actionName($request);
 
+    foreach ($response->getHeaders() as $name => $values) {
+        # code...
+        foreach ($values as $value) {
+            # code...
+            header(sprintf('%s: %s', $name, $value), false);
+        }
+    }
+
+    http_response_code($response->getStatusCode());
     echo $response->getBody(); // getBody, es la función que muestra el cuerpo del archivo HTML o el de la vista
     
 }
