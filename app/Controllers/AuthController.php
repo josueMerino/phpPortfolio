@@ -40,7 +40,7 @@ class AuthController extends BaseController {
 
     public function getLogout() {
         unset($_SESSION['userId']);
-        return new RedirectResponse('/login');
+        return new RedirectResponse('/');
         
     }
 }

@@ -36,35 +36,42 @@ use Aura\Router\RouterContainer;
 $routerContainer = new RouterContainer();
 
 $map = $routerContainer->getMap();
-$map->get('index', '/', [
+$map->get('index', '/briefcase', [
     'controller' => 'App\Controllers\IndexController',
-    'action' => 'indexAction' //La tercera expresión que ponemos es handler
+    'action' => 'indexAction', //La tercera expresión que ponemos es handler
+    'auth' => true
 ]);
 $map->get('addJobs', '/add/jobs', [
     'controller' => 'App\Controllers\JobsController',
-    'action' => 'getAddJobAction'
+    'action' => 'getAddJobAction',
+    'auth' => true
 ]);
 $map->post('saveJobs', '/add/jobs', [
     'controller' => 'App\Controllers\JobsController',
-    'action' => 'getAddJobAction'
+    'action' => 'getAddJobAction',
+    'auth' => true
 ]);
 $map->get('addProjects', '/add/projects', [
     'controller' => 'App\Controllers\ProjectsController',
-    'action' => 'getAddProjectAction'
+    'action' => 'getAddProjectAction',
+    'auth' => true
 ]);
 $map->post('saveProjects', '/add/projects', [
     'controller' => 'App\Controllers\ProjectsController',
-    'action' => 'getAddProjectAction'
+    'action' => 'getAddProjectAction',
+    'auth' => true
 ]);
 $map->get('addUsers', '/add/users', [
     'controller' => 'App\Controllers\UserController',
-    'action' => 'getAddUserAction' 
+    'action' => 'getAddUserAction',
+    'auth' => true 
 ]);
 $map->post('saveUsers', '/add/users', [
     'controller' => 'App\Controllers\UserController',
-    'action' => 'getAddUserAction' 
+    'action' => 'getAddUserAction',
+    'auth' => true 
 ]);
-$map->get('loginForm', '/login', [
+$map->get('loginForm', '/', [
     'controller' => 'App\Controllers\AuthController',
     'action' => 'getLogin' 
 ]);
@@ -87,12 +94,12 @@ $matcher = $routerContainer->getMatcher();
 $route = $matcher->match($request);
 
 
-function printElement($job){
+/*function printElement($job){
     //contenido de la función
     /*if ($job->visible == false) {
       # code...
       return;
-    }*/
+    }
   
   
     echo '<li class="work-position">';
@@ -108,7 +115,7 @@ function printElement($job){
     echo '</li>';
     echo '<ul>';
   
-  }
+  }*/
 
 if (!$route) {
     # code...
@@ -127,12 +134,7 @@ else{
     if (!$sessionUserId && $needsAuth ) {
         # code...
         echo 'Protected route';
-        var_dump($sessionUserId);
-        var_dump($needsAuth);
         die;
-    }else{
-        var_dump($sessionUserId);
-        var_dump($needsAuth);
     }
 
     $controller = new $controllerName;

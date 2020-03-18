@@ -27,12 +27,14 @@ class JobsController extends BaseController{
                 if ($logo->getError() == UPLOAD_ERR_OK) {
                     # code...
                     $fileName = $logo->getClientFilename();
-                    $logo->moveTo("uploads/$fileName");
+                    $dirFile = "uploads/$fileName";
+                    $logo->moveTo($dirFile);
                 }
                 $job = new Job();
                 $job ->title = $postData['title'];
                 $job ->description = $postData['description'];
                 $job ->months = $postData['months'];
+                $job ->image = $dirFile;
                 $job -> save();
 
                 $responseMessage = 'Saved';
