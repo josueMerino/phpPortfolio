@@ -68,6 +68,10 @@ $map->get('loginForm', '/login', [
     'controller' => 'App\Controllers\AuthController',
     'action' => 'getLogin' 
 ]);
+$map->get('logout', '/logout', [
+    'controller' => 'App\Controllers\AuthController',
+    'action' => 'getLogout' 
+]);
 $map->post('auth', '/auth', [
     'controller' => 'App\Controllers\AuthController',
     'action' => 'postLogin' 
@@ -116,10 +120,19 @@ else{
     $controllerName = $handlerData['controller'];
     $needsAuth = $handlerData['auth'] ?? false;
 
-    if (!$_SESSION['userId'] && $needsAuth ) {
+    $sessionUserId = $_SESSION['userId'] ?? null;
+
+
+    // $sessionUserId devuelve el primer operando que no sea null o sino envía el que le sucede después del ??
+    if (!$sessionUserId && $needsAuth ) {
         # code...
         echo 'Protected route';
+        var_dump($sessionUserId);
+        var_dump($needsAuth);
         die;
+    }else{
+        var_dump($sessionUserId);
+        var_dump($needsAuth);
     }
 
     $controller = new $controllerName;

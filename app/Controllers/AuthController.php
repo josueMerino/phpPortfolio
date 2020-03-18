@@ -17,14 +17,19 @@ class AuthController extends BaseController {
         # Validation :v
         $postData = $request -> getParsedBody();
         $user = User::where('email', $postData['email'])->first();
-        if($user){
-            if(password_verify($postData['password'], $user->password)){
+
+        if($user)
+        {
+            if(password_verify($postData['password'], $user->password))
+            {
                 $_SESSION['userId'] = $user->id;
                 return new RedirectResponse('/admin');
-            } else {
+            } else
+            {
                 $responseMessage = 'Wrong';
             }
-        } else{
+        } else
+        {
             $responseMessage = 'Wrong';
         }
         
@@ -33,4 +38,9 @@ class AuthController extends BaseController {
         ]);
     }
 
+    public function getLogout() {
+        unset($_SESSION['userId']);
+        return new RedirectResponse('/login');
+        
+    }
 }
