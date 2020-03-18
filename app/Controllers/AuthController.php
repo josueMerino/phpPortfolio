@@ -19,6 +19,7 @@ class AuthController extends BaseController {
         $user = User::where('email', $postData['email'])->first();
         if($user){
             if(password_verify($postData['password'], $user->password)){
+                $_SESSION['userId'] = $user->id;
                 return new RedirectResponse('/admin');
             } else {
                 $responseMessage = 'Wrong';

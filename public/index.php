@@ -6,6 +6,8 @@ error_reporting(E_ALL);
 
 require_once '../vendor/autoload.php';
 
+session_start();
+
 use App\Controllers\Database;
 use Laminas\Diactoros\ServerRequestFactory;
 
@@ -70,10 +72,12 @@ $map->post('auth', '/auth', [
     'controller' => 'App\Controllers\AuthController',
     'action' => 'postLogin' 
 ]);
-$map->get('addBriefcase', '/add', [
+$map->get('admin', '/admin', [
     'controller' => 'App\Controllers\BriefcaseController',
-    'action' => 'accessBriefcase'
+    'action' => 'accessBriefcase',
+    'auth' => true
 ]);
+
 
 $matcher = $routerContainer->getMatcher();
 $route = $matcher->match($request);
@@ -110,7 +114,13 @@ else{
     $handlerData = $route-> handler;
     $actionName = $handlerData['action'];
     $controllerName = $handlerData['controller'];
+    $needsAuth = $handlerData['auth'] ?? false;
 
+    if (!$_SESSION['userId'] && $needsAuth ) {
+        # code...
+        echo 'Protected route';
+        die;
+    }
 
     $controller = new $controllerName;
     $response = $controller->$actionName($request);
