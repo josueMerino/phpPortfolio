@@ -8,8 +8,12 @@ require_once '../vendor/autoload.php';
 
 session_start();
 
+$dotenv = Dotenv\Dotenv::createImmutable(__DIR__.'/..');
+$dotenv->load();
+
 use App\Controllers\Database;
 use Laminas\Diactoros\ServerRequestFactory;
+
 
 Database::connectDatabase();
 
