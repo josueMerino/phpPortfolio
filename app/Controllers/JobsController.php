@@ -14,7 +14,7 @@ class JobsController extends BaseController{
             $postData = $request->getParsedBody();
             $jobValidator = v::key('title', v::stringType()->notEmpty())
                             ->key('description', v::stringType()->notEmpty())
-                            ->key('months', v::intVal()->between(6, 48));
+                            ->key('months', v::intVal()->between(1, 48));
 
             try {
                 //code...
@@ -38,6 +38,7 @@ class JobsController extends BaseController{
                 $job -> save();
 
                 $responseMessage = 'Saved';
+                
             } catch (\Exception $e) {
                 //throw $th;
                 $responseMessage= $e->getMessage();
