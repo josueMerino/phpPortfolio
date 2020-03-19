@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 18-03-2020 a las 14:15:02
+-- Tiempo de generación: 19-03-2020 a las 11:14:35
 -- Versión del servidor: 10.4.11-MariaDB
 -- Versión de PHP: 7.4.3
 
@@ -44,7 +44,9 @@ CREATE TABLE `jobs` (
 --
 
 INSERT INTO `jobs` (`id`, `title`, `description`, `visible`, `months`, `image`, `created_at`, `updated_at`) VALUES
-(1, 'Python Dev', 'Authentic', 1, 13, 0x75706c6f6164732f707974686f6e2e706e67, '2020-03-18 14:04:55', '2020-03-18 14:04:55');
+(1, 'Python Dev', 'IM DOING THIS', 1, 18, 0x75706c6f6164732f707974686f6e2e706e67, '2020-03-19 11:04:59', '2020-03-19 11:04:59'),
+(2, 'Node Dev', 'IM STARTING', 1, 9, 0x75706c6f6164732f6e6f64652e706e67, '2020-03-19 11:06:39', '2020-03-19 11:06:39'),
+(3, 'Rust Dev', 'This language is weird', 1, 1, 0x75706c6f6164732f527573742e706e67, '2020-03-19 11:10:48', '2020-03-19 11:10:48');
 
 -- --------------------------------------------------------
 
@@ -125,7 +127,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT de la tabla `jobs`
 --
 ALTER TABLE `jobs`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de la tabla `projects`
