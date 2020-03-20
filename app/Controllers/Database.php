@@ -19,8 +19,7 @@ class Database {
         'password'  => getenv('DB_PASS'),
         'charset'   => 'utf8',
         'collation' => 'utf8_unicode_ci',
-        'prefix'    => '',
-        'port'      => getenv('DB_PORT')
+        'prefix'    => ''
     ]);
     
     // Make this Capsule instance available globally via static methods... (optional)
