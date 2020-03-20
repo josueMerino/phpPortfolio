@@ -67,13 +67,11 @@ $map->post('saveProjects', '/add/projects', [
 ]);
 $map->get('addUsers', '/add/users', [
     'controller' => 'App\Controllers\UserController',
-    'action' => 'getAddUserAction',
-    'auth' => true 
+    'action' => 'getAddUserAction' 
 ]);
 $map->post('saveUsers', '/add/users', [
-    'controller' => 'App\Controllers\UserController',
-    'action' => 'getAddUserAction',
-    'auth' => true 
+    'controller' => 'App\Controllers\AuthController',
+    'action' => 'getAddUserAction'
 ]);
 $map->get('loginForm', '/', [
     'controller' => 'App\Controllers\AuthController',
